@@ -1,23 +1,42 @@
 ---
-import { StreamLink } from "../const";
+import "../style.css";
+import Icon from "../components/Icon.astro";
+import Link from "../components/Link.astro";
+import { GitHubLink, LinkList, StreamLink, YouTubeLink } from "../const";
 import Layout from "../layouts/BaseLayout.astro";
 ---
 
 <Layout title="TheEnderCore">
-  <hero class="h-full flex items-center justify-center w-full relative">
+  <main class="md:h-screen flex flex-col justify-center">
+    <div class="flex flex-col items-center relative">
+      <div
+        class="w-[400px] md:w-[250px] lg:w-[400px] md:absolute md:right-[-2rem] md:top-[3rem]"
+      >
+        <img src="/end.png" alt="Pixel art of Ender" />
+      </div>
+      <div class="flex flex-col mg:flex-row text-center md:text-left">
 
-    <!-- <h1 class="text-[12rem] font-black absolute">
-      TheEnderCore
-    </h1> -->
-  </hero>
-  <main>
-    <p class="py-10">
-      Hello! My name is Ender. Im a Software dev, whos obsessed with coding <span
-        class="italic text-sm">(It's not a problem)</span
-      >. I love spending all day to just coding things. Im also a <a
-        href={StreamLink}
-        class="text-purple-400 font-bold hover:scale-150">Streamer</a
-      > as i find it very fun to streame me coding playing games.
-    </p>
+        <h1
+          class="2xl:text-[9rem] xl:text-8xl lg:pl-10 lg:pt-20 lg:text-7xl text-6xl font-black font-sans text-[#9e4ec7] py-10"
+        >
+          TheEnderCore
+        </h1>
+
+        <p
+          class="text-[1.4rem] font-barlow lg:p-20 lg:pt-0 w-fill md:w-8/12 2xl:w-9/12"
+        >
+          <span class="text-2xl"> Hello! I'm Ender<br /></span>
+          Im a <Link title="Software dev" href={GitHubLink} />, who's obsessed
+          with coding. I'm also a
+          <Link title="Streamer" href={StreamLink} />
+          as I find it very fun to streaming coding or playing games. Besides that
+          once in a blue moon I upload to
+          <Link title="Youtube" href={YouTubeLink} />.
+        </p>
+      </div>
+    </div>
+    <ul class="flex gap-5 justify-center py-16 text-xl">
+      {LinkList.map((i) => <Icon item={i} />)}
+    </ul>
   </main>
 </Layout>
